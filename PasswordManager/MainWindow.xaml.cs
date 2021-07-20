@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PasswordManager.Helpers;
+using PasswordManager.Internal.Contract;
 
 namespace PasswordManager
 {
@@ -20,9 +22,36 @@ namespace PasswordManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IApplicationContext _applicationContext;
+
+        public MainWindow(IApplicationContext applicationContext)
+        {
+            _applicationContext = applicationContext;
+
+            Init();
+        }
+
+        private void Init()
         {
             InitializeComponent();
+            PageHelper.Frame = MainFrame;
+            PageHelper.MainPageText = TxtHelper;
+            PageHelper.NewButton = BtnNew;
+            PageHelper.NewButton.Visibility = Visibility.Hidden;
+
+            if (_applicationContext.Accesses.FirstOrDefault() is not null)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

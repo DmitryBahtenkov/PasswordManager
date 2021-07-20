@@ -56,9 +56,9 @@ namespace PasswordManager.Internal.Services
             }
         }
 
-        public async Task UpdateRecord(string id, PasswordViewModel viewModel)
+        public async Task UpdateRecord(PasswordViewModel viewModel)
         {
-            var p = await _applicationContext.Passwords.FirstOrDefaultAsync(x => x.Id == id);
+            var p = await _applicationContext.Passwords.FirstOrDefaultAsync(x => x.Id == viewModel.Id);
             if (p is not null)
             {
                 p.Crypt = await _cryptService.Encrypt(viewModel.Password);

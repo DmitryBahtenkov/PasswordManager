@@ -1,0 +1,37 @@
+﻿<Page x:Class="PasswordManager.Views.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PasswordManager.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Grid>
+        <ListView x:Name="ListPasswords" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Text="{Binding Name}"></TextBlock>
+                        <TextBlock Grid.Row="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Text="{Binding Login}"></TextBlock>
+                        <Button Grid.RowSpan="3" Margin="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Copy" Name="BtnCopy" Click="BtnCopy_Click"></Button>
+                        <Button Grid.RowSpan="3" Margin="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100"  FontSize="13" Content="Edit" Name="BtnEdit" Click="BtnEdit_Click"></Button>
+                        <Button Grid.RowSpan="3" Margin="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Delete" Name="BtnDelete" Click="BtnDelete_Click"></Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

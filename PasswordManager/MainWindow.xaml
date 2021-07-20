@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
 
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="Password Manager"></TextBlock>
+
+        <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+
+        <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="TxtHelper"></TextBlock>
+        <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="12" Width="100" Height="20" Name="BtnNew" Click="Button_Click">Add new</Button>
     </Grid>
 </Window>
