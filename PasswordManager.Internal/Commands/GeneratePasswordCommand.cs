@@ -8,7 +8,7 @@ using PasswordManager.Internal.Contract.ViewModels;
 
 namespace PasswordManager.Internal.Commands
 {
-    class GeneratePasswordCommand : IGeneratePasswordCommand
+    public class GeneratePasswordCommand : IGeneratePasswordCommand
     {
         private const string SmallLetters = "qwertyuiopasdfghjklzxcvbnm";
         private const string BigLetters = "QWERTYUIOPASDFGHJKLZXCVBNM";

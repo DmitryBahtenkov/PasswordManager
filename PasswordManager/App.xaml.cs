@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using Microsoft.Extensions.DependencyInjection;
+using PasswordManager.IoC;
 
 namespace PasswordManager
 {
@@ -13,5 +9,14 @@ namespace PasswordManager
     /// </summary>
     public partial class App : Application
     {
+        private void OnStartup(object sender, StartupEventArgs e)
+        {
+            var startup = new Startup();
+            var collection = new ServiceCollection();
+            startup.ConfigureServices(collection);
+            var provider = collection.BuildServiceProvider();
+            var mainWindow = provider.GetService<MainWindow>();
+            mainWindow.Show();
+        }
     }
 }
