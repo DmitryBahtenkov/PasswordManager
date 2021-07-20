@@ -20,10 +20,10 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Name:</TextBlock>
-        <TextBox x:Name="TxtName" Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"></TextBox>
+        <TextBox x:Name="TxtName" Text="{Binding Name}" Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"></TextBox>
 
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Login:</TextBlock>
-        <TextBox x:Name="TxtLogin" Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"></TextBox>
+        <TextBox x:Name="TxtLogin" Text="{Binding Login}" Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"></TextBox>
 
         <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Password:</TextBlock>
         <PasswordBox x:Name="TxtPassword" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" ></PasswordBox>

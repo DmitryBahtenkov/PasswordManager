@@ -23,7 +23,6 @@ namespace PasswordManager.Views.Windows
     /// </summary>
     public partial class AddEditWindow : Window
     {
-        private string _currentId;
         private PasswordViewModel _viewModel;
 
         private readonly IPasswordService _passwordService;
@@ -44,7 +43,8 @@ namespace PasswordManager.Views.Windows
                 return;
             }
 
-            if (string.IsNullOrEmpty(_currentId))
+            _viewModel.Password = TxtPassword.Password;
+            if (string.IsNullOrEmpty(_viewModel.Id))
             {
                 var result = await _passwordService.CreateRecord(_viewModel);
                 if (!result.IsSuccess)
