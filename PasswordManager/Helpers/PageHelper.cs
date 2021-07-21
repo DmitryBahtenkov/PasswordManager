@@ -19,12 +19,7 @@ namespace PasswordManager.Helpers
             var dict = GetPageTypes();
             if (dict.ContainsKey(key))
             {
-                var constructor = dict[key].GetConstructor(
-                    BindingFlags.Instance | BindingFlags.Public, 
-                    null, 
-                    CallingConventions.Any, 
-                    new Type[]{}, 
-                    null);
+                var constructor = dict[key].GetConstructors().FirstOrDefault();
 
                 var o = constructor?.GetParameters()
                     ?.Select(parameter => serviceProvider.GetService(parameter.ParameterType))

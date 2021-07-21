@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using PasswordManager.IoC;
+using PasswordManager.Views.Windows;
 
 namespace PasswordManager
 {
@@ -14,6 +15,10 @@ namespace PasswordManager
             var startup = new Startup();
             var collection = new ServiceCollection();
             startup.ConfigureServices(collection);
+
+            collection.AddSingleton<MainWindow>();
+            collection.AddSingleton<AddEditWindow>();
+                
             var provider = collection.BuildServiceProvider();
             var mainWindow = provider.GetService<MainWindow>();
             mainWindow.Show();

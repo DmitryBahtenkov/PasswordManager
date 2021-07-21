@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using PasswordManager.Helpers;
 using PasswordManager.Internal.Contract.Models;
 using PasswordManager.Internal.Contract.Services;
+using PasswordManager.Internal.Contract.ViewModels;
+using PasswordManager.Views.Windows;
 
 namespace PasswordManager.Views.Pages
 {
@@ -25,11 +27,13 @@ namespace PasswordManager.Views.Pages
     {
         private readonly IPasswordService _passwordService;
         private readonly ICryptService _cryptService;
+        private readonly IServiceProvider _serviceProvider;
 
-        public MainPage(IPasswordService passwordService, ICryptService cryptService)
+        public MainPage(IPasswordService passwordService, ICryptService cryptService, IServiceProvider serviceProvider)
         {
             _passwordService = passwordService;
             _cryptService = cryptService;
+            _serviceProvider = serviceProvider;
             InitializeComponent();
         }
 
@@ -55,7 +59,13 @@ namespace PasswordManager.Views.Pages
         {
             if (ListPasswords.SelectedValue is Password password)
             {
-                //todo: 
+                var window = new AddEditWindow(_passwordService, new PasswordViewModel
+                {
+                    Id = password.Id,
+                    Name = password.Name,
+                    Login = password.Login,
+                }, _serviceProvider);
+                window.Show();
             }
         }
 

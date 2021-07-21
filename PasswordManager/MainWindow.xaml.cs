@@ -14,6 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PasswordManager.Helpers;
 using PasswordManager.Internal.Contract;
+using PasswordManager.Internal.Contract.Services;
+using PasswordManager.Internal.Contract.ViewModels;
+using PasswordManager.Views.Pages;
+using PasswordManager.Views.Windows;
 
 namespace PasswordManager
 {
@@ -23,10 +27,14 @@ namespace PasswordManager
     public partial class MainWindow : Window
     {
         private readonly IApplicationContext _applicationContext;
+        private readonly IServiceProvider _serviceProvider;
+        private readonly IPasswordService _passwordService;
 
-        public MainWindow(IApplicationContext applicationContext)
+        public MainWindow(IApplicationContext applicationContext, IServiceProvider serviceProvider, IPasswordService passwordService)
         {
             _applicationContext = applicationContext;
+            _serviceProvider = serviceProvider;
+            _passwordService = passwordService;
 
             Init();
         }
@@ -41,17 +49,18 @@ namespace PasswordManager
 
             if (_applicationContext.Accesses.FirstOrDefault() is not null)
             {
-
+                PageHelper.Navigate(_serviceProvider, nameof(AuthPage));
             }
             else
             {
-
+                PageHelper.Navigate(_serviceProvider, nameof(RegisterPage));
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            var window = new AddEditWindow(_passwordService, new PasswordViewModel(), _serviceProvider);
+            window.ShowDialog();
         }
     }
 }

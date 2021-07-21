@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using PasswordManager.Internal.Contract;
 using PasswordManager.Internal.Contract.Models;
 using PasswordManager.Internal.Contract.Services;
 using PasswordManager.Internal.Contract.ViewModels;
@@ -13,10 +14,10 @@ namespace PasswordManager.Internal.Services
 {
     public class AccessService : IAccessService
     {
-        private readonly ApplicationContext _applicationContext;
+        private readonly IApplicationContext _applicationContext;
         private readonly ICryptService _cryptService;
 
-        public AccessService(ApplicationContext applicationContext, ICryptService cryptService)
+        public AccessService(IApplicationContext applicationContext, ICryptService cryptService)
         {
             _applicationContext = applicationContext;
             _cryptService = cryptService;

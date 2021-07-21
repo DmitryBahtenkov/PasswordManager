@@ -23,10 +23,12 @@ namespace PasswordManager.Views.Pages
     public partial class AuthPage : Page
     {
         private readonly IAccessService _accessService;
+        private readonly IServiceProvider _serviceProvider;
 
-        public AuthPage(IAccessService accessService)
+        public AuthPage(IAccessService accessService, IServiceProvider serviceProvider)
         {
             _accessService = accessService;
+            _serviceProvider = serviceProvider;
             InitializeComponent();
         }
 
@@ -35,7 +37,7 @@ namespace PasswordManager.Views.Pages
             if (await _accessService.CheckAccess(TxtPassword.Password))
             {
                 PageHelper.NewButton.Visibility = Visibility.Visible;
-                //todo: navigate
+                PageHelper.Navigate(_serviceProvider, nameof(MainPage));
             }
             else
             {

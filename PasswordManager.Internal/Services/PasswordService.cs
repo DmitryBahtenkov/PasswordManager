@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using PasswordManager.Internal.Contract;
 using PasswordManager.Internal.Contract.Models;
 using PasswordManager.Internal.Contract.Services;
 using PasswordManager.Internal.Contract.ViewModels;
@@ -10,10 +11,10 @@ namespace PasswordManager.Internal.Services
 {
     public class PasswordService : IPasswordService
     {
-        private readonly ApplicationContext _applicationContext;
+        private readonly IApplicationContext _applicationContext;
         private readonly ICryptService _cryptService;
 
-        public PasswordService(ApplicationContext applicationContext, ICryptService cryptService)
+        public PasswordService(IApplicationContext applicationContext, ICryptService cryptService)
         {
             _applicationContext = applicationContext;
             _cryptService = cryptService;

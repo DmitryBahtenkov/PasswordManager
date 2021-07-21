@@ -26,12 +26,14 @@ namespace PasswordManager.Views.Windows
         private PasswordViewModel _viewModel;
 
         private readonly IPasswordService _passwordService;
+        private readonly IServiceProvider _serviceProvider;
 
-        public AddEditWindow(IPasswordService passwordService, PasswordViewModel viewModel)
+        public AddEditWindow(IPasswordService passwordService, PasswordViewModel viewModel, IServiceProvider serviceProvider)
         {
             _passwordService = passwordService;
             InitializeComponent();
             _viewModel = viewModel;
+            _serviceProvider = serviceProvider;
             DataContext = _viewModel;
         }
 
@@ -58,7 +60,7 @@ namespace PasswordManager.Views.Windows
             }
 
             MessageBox.Show("Update succefully!", "Update", MessageBoxButton.OK, MessageBoxImage.Information);
-            //todo: navigate
+            PageHelper.Navigate(_serviceProvider, nameof(MainPage));
             Close();
         }
     }

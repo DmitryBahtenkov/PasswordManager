@@ -12,7 +12,7 @@ namespace PasswordManager.IoC
     {
         public void ConfigureServices(ServiceCollection services)
         {
-            services.AddDbContext<IApplicationContext, ApplicationContext>();
+            services.AddScoped<IApplicationContext, ApplicationContext>();
             services.AddScoped<IPasswordService, PasswordService>();
             services.AddScoped<ICryptService, CryptService>();
             services.AddScoped<IAccessService, AccessService>();
