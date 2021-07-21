@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:PasswordManager.Views.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainPage">
+      Title="MainPage" Loaded="Page_Loaded">
 
     <Grid>
         <ListView x:Name="ListPasswords" HorizontalContentAlignment="Stretch">
@@ -26,7 +26,8 @@
 
                         <TextBlock Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Text="{Binding Name}"></TextBlock>
                         <TextBlock Grid.Row="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Text="{Binding Login}"></TextBlock>
-                        <Button Grid.RowSpan="3" Margin="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Copy" Name="BtnCopy" Click="BtnCopy_Click"></Button>
+                        <Button Grid.Row="0" Margin="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Copy Login" Name="BtnCopyLogin" Click="ButtonBase_OnClick"></Button>
+                        <Button Grid.Row="1" Grid.RowSpan="3" Margin="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Copy Password" Name="BtnCopyPass" Click="BtnCopy_Click"></Button>
                         <Button Grid.RowSpan="3" Margin="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100"  FontSize="13" Content="Edit" Name="BtnEdit" Click="BtnEdit_Click"></Button>
                         <Button Grid.RowSpan="3" Margin="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Delete" Name="BtnDelete" Click="BtnDelete_Click"></Button>
                     </Grid>
