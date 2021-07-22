@@ -24,12 +24,20 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Text="{Binding Name}"></TextBlock>
-                        <TextBlock Grid.Row="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Text="{Binding Login}"></TextBlock>
-                        <Button Grid.Row="0" Margin="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Copy Login" Name="BtnCopyLogin" Click="ButtonBase_OnClick"></Button>
-                        <Button Grid.Row="1" Grid.RowSpan="3" Margin="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Copy Password" Name="BtnCopyPass" Click="BtnCopy_Click"></Button>
-                        <Button Grid.RowSpan="3" Margin="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100"  FontSize="13" Content="Edit" Name="BtnEdit" Click="BtnEdit_Click"></Button>
-                        <Button Grid.RowSpan="3" Margin="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Delete" Name="BtnDelete" Click="BtnDelete_Click"></Button>
+
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" MinWidth="70" FontSize="13" Text="Название: "></TextBlock>
+                        <TextBlock Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="70" FontSize="13" Text="{Binding Name}"></TextBlock>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" MinWidth="70" FontSize="13" Text="Логин: "></TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="70" FontSize="13" Text="{Binding Login}"></TextBlock>
+
+
+                        
+                        <Button Grid.Row="0" Margin="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Copy Login" Name="BtnCopyLogin" Click="ButtonBase_OnClick"></Button>
+                        <Button Grid.Row="1" Margin="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Copy Password" Name="BtnCopyPass" Click="BtnCopy_Click"></Button>
+                        <Button Grid.Row="0"  Margin="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100"  FontSize="13" Content="Edit" Name="BtnEdit" Click="BtnEdit_Click"></Button>
+                        <Button Grid.Row="1" Margin="5" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="100" FontSize="13" Content="Delete" Name="BtnDelete" Click="BtnDelete_Click"></Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

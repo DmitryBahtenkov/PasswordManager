@@ -28,7 +28,7 @@
         <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Password:</TextBlock>
         <PasswordBox x:Name="TxtPassword" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" ></PasswordBox>
 
-        <Button x:Name="BtnSave" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="20" Click="BtnSave_Click">Save</Button>
+        <Button x:Name="BtnSave" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="auto" Click="BtnSave_Click" Cursor="Hand">Save</Button>
 
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="Password Manager"></TextBlock>
     </Grid>
