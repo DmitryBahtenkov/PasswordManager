@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="500">
+        Title="MainWindow" Height="350" Width="650">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -13,11 +13,14 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="Password Manager"></TextBlock>
+        <Grid Grid.Row="0" Background="#673AB7"></Grid>
+        <Grid Grid.Row="2" Background="#673AB7"></Grid>
+        
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="Azure" Text="Password Manager"></TextBlock>
 
         <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
 
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="TxtHelper"></TextBlock>
-        <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12" Width="100" Height="auto" Name="BtnNew" Click="Button_Click" Cursor="Hand">Add new</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Width="100" Height="auto" Name="BtnNew" Background="White" Foreground="Black" Click="Button_Click" Cursor="Hand">Add new</Button>
     </Grid>
 </Window>
