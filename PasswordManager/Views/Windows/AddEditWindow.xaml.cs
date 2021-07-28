@@ -67,7 +67,7 @@ namespace PasswordManager.Views.Windows
         private void BtnGenerate_OnClick(object sender, RoutedEventArgs e)
         {
             var window = new PasswordOptionsWindow(_serviceProvider);
-            window.OptionsAppliedHandler += (o, args) => { TxtPassword.Password = args.Password; }; 
+            window.OptionsAppliedHandler += (_, args) => { TxtPassword.Password = args.Password; }; 
             window.ShowDialog();
         }
 
