@@ -63,5 +63,13 @@ namespace PasswordManager.Views.Windows
             PageHelper.Navigate(_serviceProvider, nameof(MainPage));
             Close();
         }
+
+        private void BtnGenerate_OnClick(object sender, RoutedEventArgs e)
+        {
+            var window = new PasswordOptionsWindow(_serviceProvider);
+            window.OptionsAppliedHandler += (o, args) => { TxtPassword.Password = args.Password; }; 
+            window.ShowDialog();
+        }
+
     }
 }

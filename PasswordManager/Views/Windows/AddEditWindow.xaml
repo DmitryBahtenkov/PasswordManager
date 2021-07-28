@@ -25,6 +25,10 @@
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Login:</TextBlock>
         <TextBox x:Name="TxtLogin" Text="{Binding Login}" Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"></TextBox>
 
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Name="BtnGenerate" Click="BtnGenerate_OnClick" Margin="10">Сгенерировать</Button>
+        </Grid>
+
         <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Password:</TextBlock>
         <PasswordBox x:Name="TxtPassword" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" ></PasswordBox>
 
