@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PasswordManager.Internal.Contract;
@@ -70,9 +71,19 @@ namespace PasswordManager.Internal.Services
             await _applicationContext.SaveChangesAsync();
         }
 
-        public async Task<ResultModel<IEnumerable<Password>>> GetAll()
+        public async Task<ResultModel<IEnumerable<Password>>> GetAll(SearchOptions options)
         {
-            return new(await _applicationContext.Passwords.ToListAsync());
+            if (!string.IsNullOrEmpty(options.Name))
+            {
+                var items = await _applicationContext.Passwords
+                    .Where(x=>x.Name.ToLower().Contains(options.Name))
+                    .ToListAsync();
+                return new(items);
+            }
+            else
+            {
+                return new(await _applicationContext.Passwords.ToListAsync());
+            }
         }
 
         public async Task<ResultModel<Password>> Get(string id)

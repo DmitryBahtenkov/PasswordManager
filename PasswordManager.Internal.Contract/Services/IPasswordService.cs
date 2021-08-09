@@ -13,7 +13,7 @@ namespace PasswordManager.Internal.Contract.Services
         public Task<ResultModel<Password>> CreateRecord(PasswordViewModel viewModel);
         public Task DeleteRecord(string id);
         public Task UpdateRecord(PasswordViewModel viewModel);
-        public Task<ResultModel<IEnumerable<Password>>> GetAll();
+        public Task<ResultModel<IEnumerable<Password>>> GetAll(SearchOptions options);
         public Task<ResultModel<Password>> Get(string id);
     }
 }

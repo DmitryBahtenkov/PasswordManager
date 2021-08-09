@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager.Views.Windows"
         mc:Ignorable="d"
-        Title="AddEditWindow" Height="450" Width="800">
+        Title="AddEditWindow" Height="200" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -25,14 +25,11 @@
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Login:</TextBlock>
         <TextBox x:Name="TxtLogin" Text="{Binding Login}" Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"></TextBox>
 
-        <Grid Grid.Row="3" Grid.Column="1">
-            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Name="BtnGenerate" Click="BtnGenerate_OnClick" Margin="10">Сгенерировать</Button>
-        </Grid>
-
         <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Password:</TextBlock>
         <PasswordBox x:Name="TxtPassword" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" ></PasswordBox>
 
         <Button x:Name="BtnSave" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="auto" Click="BtnSave_Click" Cursor="Hand">Save</Button>
+        <Button Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Name="BtnGenerate" Height="auto" Click="BtnGenerate_OnClick">Generate</Button>
 
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="Password Manager"></TextBlock>
     </Grid>

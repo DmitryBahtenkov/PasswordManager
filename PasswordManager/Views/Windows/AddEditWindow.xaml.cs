@@ -23,7 +23,7 @@ namespace PasswordManager.Views.Windows
     /// </summary>
     public partial class AddEditWindow : Window
     {
-        private PasswordViewModel _viewModel;
+        private readonly PasswordViewModel _viewModel;
 
         private readonly IPasswordService _passwordService;
         private readonly IServiceProvider _serviceProvider;
@@ -39,7 +39,7 @@ namespace PasswordManager.Views.Windows
 
         private async void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtName.Text) || string.IsNullOrEmpty(TxtPassword.Password))
+            if (string.IsNullOrEmpty(TxtName.Text) || string.IsNullOrEmpty(TxtPassword.Password) || string.IsNullOrEmpty(TxtLogin.Text))
             {
                 MessageBox.Show("Please, enter data", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

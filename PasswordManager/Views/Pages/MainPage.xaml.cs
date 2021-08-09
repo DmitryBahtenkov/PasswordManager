@@ -29,7 +29,7 @@ namespace PasswordManager.Views.Pages
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            ListPasswords.ItemsSource = (await _passwordService.GetAll()).Content;
+            ListPasswords.ItemsSource = (await _passwordService.GetAll(new SearchOptions())).Content;
         }
 
         private async void BtnCopy_Click(object sender, RoutedEventArgs e)
