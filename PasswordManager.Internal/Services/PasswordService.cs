@@ -76,7 +76,8 @@ namespace PasswordManager.Internal.Services
             if (!string.IsNullOrEmpty(options.Name))
             {
                 var items = await _applicationContext.Passwords
-                    .Where(x=>x.Name.ToLower().Contains(options.Name))
+                    .Where(x=>x.Name.ToLower().Contains(options.Name)
+                        || x.Login.ToLower().Contains(options.Name))
                     .ToListAsync();
                 return new(items);
             }
