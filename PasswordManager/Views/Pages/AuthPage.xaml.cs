@@ -37,6 +37,10 @@ namespace PasswordManager.Views.Pages
             if (await _accessService.CheckAccess(TxtPassword.Password))
             {
                 PageHelper.NewButton.Visibility = Visibility.Visible;
+                PageHelper.SearchButton.Visibility = Visibility.Visible;
+                PageHelper.CleanButton.Visibility = Visibility.Visible;
+                PageHelper.TxtSearch.Visibility = Visibility.Visible;
+
                 PageHelper.Navigate(_serviceProvider, nameof(MainPage));
             }
             else

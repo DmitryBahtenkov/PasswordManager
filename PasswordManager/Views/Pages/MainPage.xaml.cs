@@ -30,6 +30,10 @@ namespace PasswordManager.Views.Pages
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ListPasswords.ItemsSource = (await _passwordService.GetAll(new SearchOptions())).Content;
+            PageHelper.SearchEventHandler += async (o, args) =>
+            {
+                ListPasswords.ItemsSource = (await _passwordService.GetAll(args.Options)).Content;
+            };
         }
 
         private async void BtnCopy_Click(object sender, RoutedEventArgs e)

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -42,11 +44,21 @@ namespace PasswordManager
         private void Init()
         {
             InitializeComponent();
+            TxtSearch.Effect = null;
             PageHelper.Frame = MainFrame;
             PageHelper.MainPageText = TxtHelper;
             PageHelper.NewButton = BtnNew;
             PageHelper.NewButton.Visibility = Visibility.Hidden;
-
+            
+            PageHelper.SearchButton = BtnSearch;
+            PageHelper.SearchButton.Visibility = Visibility.Hidden;
+            
+            PageHelper.CleanButton = BtnClean;
+            PageHelper.CleanButton.Visibility = Visibility.Hidden;
+            
+            PageHelper.TxtSearch = TxtSearch;
+            PageHelper.TxtSearch.Visibility = Visibility.Hidden;
+            
             if (_applicationContext.Accesses.FirstOrDefault() is not null)
             {
                 PageHelper.Navigate(_serviceProvider, nameof(AuthPage));
@@ -61,6 +73,16 @@ namespace PasswordManager
         {
             var window = new AddEditWindow(_passwordService, new PasswordViewModel(), _serviceProvider);
             window.ShowDialog();
+        }
+
+        private void BtnSearch_OnClick(object sender, RoutedEventArgs e)
+        {
+            PageHelper.InvokeSearch(this, new SearchEventArgs(TxtSearch.Text));
+        }
+
+        private void BtnClean_OnClick(object sender, RoutedEventArgs e)
+        {
+            PageHelper.InvokeSearch(this, new SearchEventArgs(new SearchOptions()));
         }
     }
 }

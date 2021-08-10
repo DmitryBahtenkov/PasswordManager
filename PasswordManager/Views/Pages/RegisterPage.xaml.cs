@@ -25,9 +25,16 @@ namespace PasswordManager.Views.Pages
         {
             if (TxtPassword.Password == TxtConfirmPassword.Password)
             {
-                await _accessService.CreateAccess(TxtPassword.Password);
                 PageHelper.NewButton.Visibility = Visibility.Visible;
+                PageHelper.SearchButton.Visibility = Visibility.Visible;
+                PageHelper.CleanButton.Visibility = Visibility.Visible;
+                PageHelper.TxtSearch.Visibility = Visibility.Visible;
+                await _accessService.CreateAccess(TxtPassword.Password);
                 PageHelper.Navigate(_serviceProvider, nameof(MainPage));
+            }
+            else
+            {
+                MessageBox.Show("Подтвердите пароль");
             }
         }
     }
