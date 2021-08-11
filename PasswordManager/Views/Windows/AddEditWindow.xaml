@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager.Views.Windows"
         mc:Ignorable="d"
-        Title="AddEditWindow" Height="200" Width="400">
+        Title="Add new password" Height="200" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>

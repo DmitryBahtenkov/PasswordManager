@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="650">
+        Title="Password manager" Height="350" Width="650">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -30,14 +30,22 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button  Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="auto" Name="BtnSearch" Click="BtnSearch_OnClick" Cursor="Hand">Search</Button>
-                <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Height="auto" Name="BtnClean" Click="BtnClean_OnClick" Cursor="Hand">Clean</Button>
+                <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"  Name="BtnSearch" Click="BtnSearch_OnClick" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="../Resources/search.png" Stretch="Uniform" TileMode="None"/>
+                    </Button.Background>
+                </Button>
+                <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"  Name="BtnClean" Click="BtnClean_OnClick" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="/Resources/clean.png"/>
+                    </Button.Background>
+                </Button>
             </Grid>
         </Grid>
 
         <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
 
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="TxtHelper"></TextBlock>
-        <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Width="100" Margin="5" Height="auto" Name="BtnNew"  Click="Button_Click" Cursor="Hand">Add new</Button>
+        <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Width="100" Margin="5" Height="auto" Name="BtnNew"  Click="Button_Click" Cursor="Hand">Add new</Button>
     </Grid>
 </Window>
