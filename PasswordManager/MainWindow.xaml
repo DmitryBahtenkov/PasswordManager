@@ -30,16 +30,8 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"  Name="BtnSearch" Click="BtnSearch_OnClick" Cursor="Hand">
-                    <Button.Background>
-                        <ImageBrush ImageSource="../Resources/search.png" Stretch="Uniform" TileMode="None"/>
-                    </Button.Background>
-                </Button>
-                <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"  Name="BtnClean" Click="BtnClean_OnClick" Cursor="Hand">
-                    <Button.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="/Resources/clean.png"/>
-                    </Button.Background>
-                </Button>
+                <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"  Name="BtnSearch" Click="BtnSearch_OnClick" Cursor="Hand">Search</Button>
+                <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"  Name="BtnClean" Click="BtnClean_OnClick" Cursor="Hand">Clean</Button>
             </Grid>
         </Grid>
 
