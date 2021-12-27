@@ -30,15 +30,19 @@ namespace PasswordManager.Views.Pages
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ListPasswords.ItemsSource = (await _passwordService.GetAll(new SearchOptions())).Content;
-            PageHelper.SearchEventHandler += async (o, args) =>
+            PageHelper.SearchEventHandler += async (_, args) =>
             {
+                if (string.IsNullOrEmpty(args.Options.Name))
+                {
+                    PageHelper.TxtSearch.Text = string.Empty;
+                }
                 ListPasswords.ItemsSource = (await _passwordService.GetAll(args.Options)).Content;
             };
         }
 
         private async void BtnCopy_Click(object sender, RoutedEventArgs e)
         {
-            if (ListPasswords.SelectedValue is Password password)
+            if (((Button)sender).DataContext is Password password)
             {
                 var text = await _cryptService.Decrypt(password.Crypt);
                 Clipboard.SetText(text);
@@ -51,7 +55,7 @@ namespace PasswordManager.Views.Pages
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            if (ListPasswords.SelectedValue is Password password)
+            if (((Button)sender).DataContext is Password password)
             {
                 var window = new AddEditWindow(_passwordService, new PasswordViewModel
                 {
@@ -65,7 +69,7 @@ namespace PasswordManager.Views.Pages
 
         private async void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (ListPasswords.SelectedValue is Password password)
+            if (((Button)sender).DataContext is Password password)
             {
                 if (MessageBox.Show("Delete record?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
@@ -77,7 +81,7 @@ namespace PasswordManager.Views.Pages
 
         private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            if (ListPasswords.SelectedValue is Password password)
+            if (((Button)sender).DataContext is Password password)
             {
                 var text = password.Login;
                 Clipboard.SetText(text);
