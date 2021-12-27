@@ -35,12 +35,10 @@
             </Grid>
         </Grid>
 
-        <TabControl Grid.Row="1">
+        <TabControl Grid.Row="1" SelectionChanged="Selector_OnSelectionChanged">
             <TabItem >
                 <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
                         <TextBlock Margin="3">Пароли</TextBlock>
-                    </StackPanel>
                 </TabItem.Header>
                 <TabItem.Content>
                     <Frame Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
@@ -48,9 +46,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="3">Настройки</TextBlock>
-                    </StackPanel>
+                        <TextBlock Margin="3">Экспорт</TextBlock>
                 </TabItem.Header>
                 <TabItem.Content>
                     <Frame Name="ConfigFrame" NavigationUIVisibility="Hidden"></Frame>
