@@ -11,6 +11,7 @@ namespace PasswordManager.Internal.Contract.Services
     public interface IPasswordService
     {
         public Task<ResultModel<Password>> CreateRecord(PasswordViewModel viewModel);
+        public Task<ResultModel<List<Password>>> CreateRecords(List<Password> passwords);
         public Task DeleteRecord(string id);
         public Task UpdateRecord(PasswordViewModel viewModel);
         public Task<ResultModel<IEnumerable<Password>>> GetAll(SearchOptions options);

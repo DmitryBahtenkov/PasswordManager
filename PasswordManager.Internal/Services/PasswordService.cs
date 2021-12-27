@@ -44,6 +44,21 @@ namespace PasswordManager.Internal.Services
             }
         }
 
+        public async Task<ResultModel<List<Password>>> CreateRecords(List<Password> passwords)
+        {
+            try
+            {
+                await _applicationContext.Passwords.AddRangeAsync(passwords);
+                await _applicationContext.SaveChangesAsync();
+
+                return new (passwords);
+            }
+            catch (Exception ex)
+            {
+                return ResultModel<List<Password>>.WithError(ex.Message);
+            }
+        }
+
         public async Task DeleteRecord(string id)
         {
             var password = await _applicationContext.Passwords.FindAsync(id);
