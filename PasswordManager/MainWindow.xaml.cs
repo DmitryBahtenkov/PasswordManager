@@ -31,12 +31,14 @@ namespace PasswordManager
         private readonly IApplicationContext _applicationContext;
         private readonly IServiceProvider _serviceProvider;
         private readonly IPasswordService _passwordService;
+        private readonly ConfigPage _configPage;
 
-        public MainWindow(IApplicationContext applicationContext, IServiceProvider serviceProvider, IPasswordService passwordService)
+        public MainWindow(IApplicationContext applicationContext, IServiceProvider serviceProvider, IPasswordService passwordService, ConfigPage configPage)
         {
             _applicationContext = applicationContext;
             _serviceProvider = serviceProvider;
             _passwordService = passwordService;
+            _configPage = configPage;
 
             Init();
         }
@@ -58,6 +60,7 @@ namespace PasswordManager
             
             PageHelper.TxtSearch = TxtSearch;
             PageHelper.TxtSearch.Visibility = Visibility.Hidden;
+            PageHelper.ConfigFrame = ConfigFrame;
             
             if (_applicationContext.Accesses.FirstOrDefault() is not null)
             {
@@ -67,6 +70,7 @@ namespace PasswordManager
             {
                 PageHelper.Navigate(_serviceProvider, nameof(RegisterPage));
             }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

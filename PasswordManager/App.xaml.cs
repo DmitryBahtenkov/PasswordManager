@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using PasswordManager.IoC;
+using PasswordManager.Views.Pages;
 using PasswordManager.Views.Windows;
 
 namespace PasswordManager
@@ -18,6 +19,7 @@ namespace PasswordManager
 
             collection.AddSingleton<MainWindow>();
             collection.AddSingleton<AddEditWindow>();
+            collection.AddSingleton<ConfigPage>();
                 
             var provider = collection.BuildServiceProvider();
             var mainWindow = provider.GetService<MainWindow>();

@@ -35,8 +35,28 @@
             </Grid>
         </Grid>
 
-        <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
-
+        <TabControl Grid.Row="1">
+            <TabItem >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Пароли</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Frame Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3">Настройки</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Frame Name="ConfigFrame" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="TxtHelper"></TextBlock>
         <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Width="100" Margin="5" Height="auto" Name="BtnNew"  Click="Button_Click" Cursor="Hand">Add new</Button>
     </Grid>

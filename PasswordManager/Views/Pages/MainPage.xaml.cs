@@ -18,18 +18,21 @@ namespace PasswordManager.Views.Pages
         private readonly IPasswordService _passwordService;
         private readonly ICryptService _cryptService;
         private readonly IServiceProvider _serviceProvider;
+        private readonly ConfigPage _configPage;
 
-        public MainPage(IPasswordService passwordService, ICryptService cryptService, IServiceProvider serviceProvider)
+        public MainPage(IPasswordService passwordService, ICryptService cryptService, IServiceProvider serviceProvider, ConfigPage configPage)
         {
             _passwordService = passwordService;
             _cryptService = cryptService;
             _serviceProvider = serviceProvider;
+            _configPage = configPage;
             InitializeComponent();
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ListPasswords.ItemsSource = (await _passwordService.GetAll(new SearchOptions())).Content;
+            PageHelper.ConfigFrame.Navigate(_configPage);
             PageHelper.SearchEventHandler += async (_, args) =>
             {
                 if (string.IsNullOrEmpty(args.Options.Name))
