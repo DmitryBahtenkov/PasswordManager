@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager.Views.Windows"
         mc:Ignorable="d"
-        Title="Add new password" Height="200" Width="400">
+        Title="Add new password" Height="250" Width="450">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
@@ -24,12 +25,15 @@
 
         <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Login:</TextBlock>
         <TextBox x:Name="TxtLogin" Text="{Binding Login}" Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"></TextBox>
-
+        
         <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Password:</TextBlock>
         <PasswordBox x:Name="TxtPassword" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" ></PasswordBox>
+        <TextBox x:Name="TxtPasswordVisible" Visibility="Hidden" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" ></TextBox>
+        <CheckBox Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="0" Checked="CheckPasswordVisible_OnChecked" Unchecked="CheckPasswordVisible_OnChecked" Name="CheckPasswordVisible" HorizontalAlignment="Center" VerticalAlignment="Center">Показать пароль</CheckBox>
 
-        <Button x:Name="BtnSave" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="auto" Click="BtnSave_Click" Cursor="Hand">Save</Button>
-        <Button Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Name="BtnGenerate" Height="auto" Click="BtnGenerate_OnClick">Generate</Button>
+        
+        <Button x:Name="BtnSave" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="auto" Click="BtnSave_Click" Cursor="Hand">Save</Button>
+        <Button Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Name="BtnGenerate" Height="auto" Click="BtnGenerate_OnClick">Generate</Button>
 
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Text="Password Manager"></TextBlock>
     </Grid>
