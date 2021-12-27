@@ -103,5 +103,10 @@ namespace PasswordManager
                 }
             }
         }
+
+        private void BtnImport_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
