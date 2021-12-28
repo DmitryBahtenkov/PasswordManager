@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Win32;
@@ -38,7 +39,46 @@ namespace PasswordManager.Views.Pages
                 return;
             }
 
-            await _exportService.FromChrome(file);
+            var result = await _exportService.Import(file);
+
+            if (result.Any())
+            {
+                MessageBox.Show($"Imported {result.Count} passwords", 
+                    "Information", 
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+        }
+
+        private void BtnExport_OnClick(object sender, RoutedEventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.FileName = "passwords.csv";
+            
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                TxtExport.Text = saveFileDialog.FileName;
+            }
+        }
+
+
+        private async void BtnExecute_OnClick(object sender, RoutedEventArgs e)
+        {
+            var file = TxtExport.Text;
+            if (string.IsNullOrEmpty(file))
+            {
+                MessageBox.Show("Please select the file", "Warn", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var text =
+                "При импорте файла все пароли будут расшифрованы, утечка этого файла может привести к серьёзным последствиям. Вы уверены, что хотите выполнить импорт?";
+            if (MessageBox.Show(text, "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning)
+                is MessageBoxResult.Yes)
+            {
+                file = await _exportService.Export(file);
+                MessageBox.Show($"Saved to file: \n{file}", "Import", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

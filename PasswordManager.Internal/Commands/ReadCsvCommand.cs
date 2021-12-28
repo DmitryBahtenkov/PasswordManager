@@ -30,7 +30,7 @@ namespace PasswordManager.Internal.Commands
 
             return await lines.Skip(1).Select(line => line.Split(',')).Select(async x => new Password
             {
-                Name = string.IsNullOrEmpty(x[0]) ? x[2] : x[0],
+                Name = string.IsNullOrEmpty(x[0]) ? x[1] : x[0],
                 Login = x[2],
                 Crypt = await _cryptService.Encrypt(x[3]),
                 Id = Guid.NewGuid().ToString()
