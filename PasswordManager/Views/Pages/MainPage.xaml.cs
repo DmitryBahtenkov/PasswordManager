@@ -32,8 +32,13 @@ namespace PasswordManager.Views.Pages
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            ListPasswords.ItemsSource = (await _passwordService.GetAll(new SearchOptions())).Content;
+            ListPasswords.ItemsSource = (await _passwordService.GetAll(new SearchOptions
+            {
+                Name = PageHelper.TxtSearch.Text
+            })).Content;
+            
             PageHelper.ConfigFrame.Navigate(_configPage);
+            
             PageHelper.TxtSearch.KeyUp += async (_, args) =>
             {
                 if (args.Key is Key.Enter)
@@ -45,6 +50,7 @@ namespace PasswordManager.Views.Pages
                     ListPasswords.ItemsSource = (await _passwordService.GetAll(new SearchOptions())).Content;
                 }
             };
+            
             PageHelper.SearchEventHandler += async (_, args) =>
             {
                 if (string.IsNullOrEmpty(args.Options.Name))
