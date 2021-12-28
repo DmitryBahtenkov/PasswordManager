@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using PasswordManager.Helpers;
 using PasswordManager.Internal.Contract;
 using PasswordManager.Internal.Contract.Services;
@@ -31,14 +19,12 @@ namespace PasswordManager
         private readonly IApplicationContext _applicationContext;
         private readonly IServiceProvider _serviceProvider;
         private readonly IPasswordService _passwordService;
-        private readonly ConfigPage _configPage;
 
-        public MainWindow(IApplicationContext applicationContext, IServiceProvider serviceProvider, IPasswordService passwordService, ConfigPage configPage)
+        public MainWindow(IApplicationContext applicationContext, IServiceProvider serviceProvider, IPasswordService passwordService)
         {
             _applicationContext = applicationContext;
             _serviceProvider = serviceProvider;
             _passwordService = passwordService;
-            _configPage = configPage;
 
             Init();
         }
@@ -102,11 +88,6 @@ namespace PasswordManager
                     PageHelper.SetSearchVisibility(Visibility.Visible);
                 }
             }
-        }
-
-        private void BtnImport_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }
