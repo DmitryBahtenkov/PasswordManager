@@ -93,11 +93,11 @@ namespace PasswordManager
             {
                 var textBlock = ((TabItem)tabControl.SelectedValue).Header as TextBlock;
 
-                if (textBlock?.Text is "Экспорт")
+                if (textBlock?.Text is "Import/Export")
                 {
                     PageHelper.SetSearchVisibility(Visibility.Hidden);
                 }
-                else if(textBlock?.Text is "Пароли" && PageHelper.Frame?.Content is MainPage)
+                else if(textBlock?.Text is "Passwords" && PageHelper.Frame?.Content is MainPage)
                 {
                     PageHelper.SetSearchVisibility(Visibility.Visible);
                 }

@@ -29,7 +29,7 @@
         <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right">Password:</TextBlock>
         <PasswordBox x:Name="TxtPassword" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" ></PasswordBox>
         <TextBox x:Name="TxtPasswordVisible" Visibility="Hidden" Grid.Row="3" Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" ></TextBox>
-        <CheckBox Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="0" Checked="CheckPasswordVisible_OnChecked" Unchecked="CheckPasswordVisible_OnChecked" Name="CheckPasswordVisible" HorizontalAlignment="Center" VerticalAlignment="Center">Показать пароль</CheckBox>
+        <CheckBox Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="0" Checked="CheckPasswordVisible_OnChecked" Unchecked="CheckPasswordVisible_OnChecked" Name="CheckPasswordVisible" HorizontalAlignment="Center" VerticalAlignment="Center">Show password</CheckBox>
 
         
         <Button x:Name="BtnSave" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="auto" Click="BtnSave_Click" Cursor="Hand">Save</Button>

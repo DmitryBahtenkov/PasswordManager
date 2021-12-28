@@ -38,7 +38,7 @@
         <TabControl Grid.Row="1" SelectionChanged="Selector_OnSelectionChanged">
             <TabItem >
                 <TabItem.Header>
-                        <TextBlock Margin="3">Пароли</TextBlock>
+                        <TextBlock Margin="3">Passwords</TextBlock>
                 </TabItem.Header>
                 <TabItem.Content>
                     <Frame Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
@@ -46,7 +46,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                        <TextBlock Margin="3">Экспорт</TextBlock>
+                        <TextBlock Margin="3">Import/Export</TextBlock>
                 </TabItem.Header>
                 <TabItem.Content>
                     <Frame Name="ConfigFrame" NavigationUIVisibility="Hidden"></Frame>
