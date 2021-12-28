@@ -8,9 +8,9 @@
         Title="Password manager" Height="350" Width="650">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
             <RowDefinition Height="4*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Background="#7f8891"></Grid>
