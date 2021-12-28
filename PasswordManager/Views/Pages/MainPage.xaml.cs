@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using PasswordManager.Helpers;
 using PasswordManager.Internal.Contract.Models;
 using PasswordManager.Internal.Contract.Services;
@@ -33,6 +34,17 @@ namespace PasswordManager.Views.Pages
         {
             ListPasswords.ItemsSource = (await _passwordService.GetAll(new SearchOptions())).Content;
             PageHelper.ConfigFrame.Navigate(_configPage);
+            PageHelper.TxtSearch.KeyUp += async (_, args) =>
+            {
+                if (args.Key is Key.Enter)
+                {
+                    PageHelper.InvokeSearch(this, new SearchEventArgs(PageHelper.TxtSearch.Text));
+                }
+                else if (args.Key is Key.Back && string.IsNullOrEmpty(PageHelper.TxtSearch.Text))
+                {
+                    ListPasswords.ItemsSource = (await _passwordService.GetAll(new SearchOptions())).Content;
+                }
+            };
             PageHelper.SearchEventHandler += async (_, args) =>
             {
                 if (string.IsNullOrEmpty(args.Options.Name))
