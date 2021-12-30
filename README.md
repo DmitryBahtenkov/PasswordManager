@@ -27,3 +27,8 @@
 
 Для того, чтобы скопировать ваш логин/пароль, необходимо **выделить**  необходимую запись, после чего нажать на
 необходимую кнопку - "Copy Login" или "Copy Password". 
+
+## Участники проекта:
+
+- [Dmitry 'Iridium' Bahtenkov](https://github.com/DmitryBahtenkov) - Developer
+- [Goroption](https://github.com/goroption) - Icon Designer
