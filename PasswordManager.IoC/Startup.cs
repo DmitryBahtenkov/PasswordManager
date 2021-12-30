@@ -18,6 +18,8 @@ namespace PasswordManager.IoC
             services.AddScoped<IAccessService, AccessService>();
             services.AddScoped<IGeneratePasswordCommand, GeneratePasswordCommand>();
             services.AddEntityFrameworkSqlite();
+            services.AddScoped<IReadCsvCommand, ReadCsvCommand>();
+            services.AddScoped<IExportService, ExportService>();
         }
     }
 }

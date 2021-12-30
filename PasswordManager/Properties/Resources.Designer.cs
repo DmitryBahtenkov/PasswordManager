@@ -73,6 +73,16 @@ namespace PasswordManager.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
+        public static byte[] photo_2021_12_30_12_01_26_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("photo_2021_12_30_12_01_26_removebg_preview", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
         public static byte[] search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);

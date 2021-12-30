@@ -8,9 +8,9 @@
         Title="Password manager" Height="350" Width="650">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
             <RowDefinition Height="4*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Background="#7f8891"></Grid>
@@ -35,9 +35,25 @@
             </Grid>
         </Grid>
 
-        <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
-
+        <TabControl Grid.Row="1" SelectionChanged="Selector_OnSelectionChanged">
+            <TabItem >
+                <TabItem.Header>
+                        <TextBlock Margin="3">Passwords</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Frame Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                        <TextBlock Margin="3">Import/Export</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Frame Name="ConfigFrame" NavigationUIVisibility="Hidden"></Frame>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="TxtHelper"></TextBlock>
-        <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Width="100" Margin="5" Height="auto" Name="BtnNew"  Click="Button_Click" Cursor="Hand">Add new</Button>
+        <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Width="100" Margin="5" Height="auto" Name="BtnNew"  Click="Button_Click" Cursor="Hand">Add new</Button>
     </Grid>
 </Window>

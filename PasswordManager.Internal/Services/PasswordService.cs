@@ -44,6 +44,21 @@ namespace PasswordManager.Internal.Services
             }
         }
 
+        public async Task<ResultModel<List<Password>>> CreateRecords(List<Password> passwords)
+        {
+            try
+            {
+                await _applicationContext.Passwords.AddRangeAsync(passwords);
+                await _applicationContext.SaveChangesAsync();
+
+                return new (passwords);
+            }
+            catch (Exception ex)
+            {
+                return ResultModel<List<Password>>.WithError(ex.Message);
+            }
+        }
+
         public async Task DeleteRecord(string id)
         {
             var password = await _applicationContext.Passwords.FindAsync(id);
@@ -75,9 +90,10 @@ namespace PasswordManager.Internal.Services
         {
             if (!string.IsNullOrEmpty(options.Name))
             {
+                var lowerName = options.Name.ToLower();
                 var items = await _applicationContext.Passwords
-                    .Where(x=>x.Name.ToLower().Contains(options.Name)
-                        || x.Login.ToLower().Contains(options.Name))
+                    .Where(x=>x.Name.ToLower().Contains(lowerName)
+                        || x.Login.ToLower().Contains(lowerName))
                     .ToListAsync();
                 return new(items);
             }

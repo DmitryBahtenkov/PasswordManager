@@ -67,9 +67,28 @@ namespace PasswordManager.Views.Windows
         private void BtnGenerate_OnClick(object sender, RoutedEventArgs e)
         {
             var window = new PasswordOptionsWindow(_serviceProvider);
-            window.OptionsAppliedHandler += (_, args) => { TxtPassword.Password = args.Password; }; 
+            window.OptionsAppliedHandler += (_, args) =>
+            {
+                TxtPassword.Password = args.Password;
+                TxtPasswordVisible.Text = args.Password;
+            }; 
             window.ShowDialog();
         }
 
+        private void CheckPasswordVisible_OnChecked(object sender, RoutedEventArgs e)
+        {
+            if (CheckPasswordVisible?.IsChecked is true)
+            {
+                TxtPassword.Visibility = Visibility.Hidden;
+                TxtPasswordVisible.Visibility = Visibility.Visible;
+                TxtPasswordVisible.Text = TxtPassword.Password;
+            }
+            else
+            {
+                TxtPassword.Visibility = Visibility.Visible;
+                TxtPasswordVisible.Visibility = Visibility.Hidden;
+                TxtPassword.Password = TxtPasswordVisible.Text;
+            }
+        }
     }
 }

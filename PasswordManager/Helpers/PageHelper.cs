@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using PasswordManager.Internal.Contract.ViewModels;
 
@@ -21,6 +22,7 @@ namespace PasswordManager.Helpers
         public static Button SearchButton { get; set; }
         public static Button CleanButton { get; set; }
         public static TextBox TxtSearch { get; set; }
+        public static Frame ConfigFrame { get; set; }
         
         public static void InvokeSearch(object sender, SearchEventArgs args) => SearchEventHandler?.Invoke(sender, args);
         public static void Navigate(IServiceProvider serviceProvider, string key)
@@ -36,6 +38,13 @@ namespace PasswordManager.Helpers
 
                 Frame.Navigate(Activator.CreateInstance(dict[key], o));
             }
+        }
+
+        public static void SetSearchVisibility(Visibility visibility)
+        {
+            TxtSearch.Visibility = visibility;
+            SearchButton.Visibility = visibility;
+            CleanButton.Visibility = visibility;
         }
 
         private static Dictionary<string, Type> GetPageTypes()

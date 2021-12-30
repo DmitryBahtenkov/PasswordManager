@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using PasswordManager.Helpers;
 using PasswordManager.Internal.Contract;
 using PasswordManager.Internal.Contract.Services;
@@ -51,14 +39,13 @@ namespace PasswordManager
             PageHelper.NewButton.Visibility = Visibility.Hidden;
             
             PageHelper.SearchButton = BtnSearch;
-            PageHelper.SearchButton.Visibility = Visibility.Hidden;
             
             PageHelper.CleanButton = BtnClean;
-            PageHelper.CleanButton.Visibility = Visibility.Hidden;
             
             PageHelper.TxtSearch = TxtSearch;
-            PageHelper.TxtSearch.Visibility = Visibility.Hidden;
+            PageHelper.ConfigFrame = ConfigFrame;
             
+            PageHelper.SetSearchVisibility(Visibility.Hidden);
             if (_applicationContext.Accesses.FirstOrDefault() is not null)
             {
                 PageHelper.Navigate(_serviceProvider, nameof(AuthPage));
@@ -67,6 +54,7 @@ namespace PasswordManager
             {
                 PageHelper.Navigate(_serviceProvider, nameof(RegisterPage));
             }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -83,6 +71,23 @@ namespace PasswordManager
         private void BtnClean_OnClick(object sender, RoutedEventArgs e)
         {
             PageHelper.InvokeSearch(this, new SearchEventArgs(new SearchOptions()));
+        }
+
+        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.Source is TabControl tabControl)
+            {
+                var textBlock = ((TabItem)tabControl.SelectedValue).Header as TextBlock;
+
+                if (textBlock?.Text is "Import/Export")
+                {
+                    PageHelper.SetSearchVisibility(Visibility.Hidden);
+                }
+                else if(textBlock?.Text is "Passwords" && PageHelper.Frame?.Content is MainPage)
+                {
+                    PageHelper.SetSearchVisibility(Visibility.Visible);
+                }
+            }
         }
     }
 }
